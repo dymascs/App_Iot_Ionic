@@ -21,9 +21,8 @@ export class AppComponent implements OnInit {
       title: 'Temperatura',
       url: '/temperature',
       icon: 'thermometer'
-    }
-  ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+    }    
+  ];  
 
   constructor(
     private platform: Platform,
