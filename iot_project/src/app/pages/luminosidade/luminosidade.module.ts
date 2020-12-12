@@ -8,12 +8,16 @@ import { LuminosidadePageRoutingModule } from './luminosidade-routing.module';
 
 import { LuminosidadePage } from './luminosidade.page';
 
+import { ChartModule } from 'angular2-highcharts';
+import * as highcharts from 'highcharts';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LuminosidadePageRoutingModule
+    LuminosidadePageRoutingModule,
+    ChartModule.forRoot(highcharts)
   ],
   declarations: [LuminosidadePage]
 })

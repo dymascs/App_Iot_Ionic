@@ -4,13 +4,13 @@ import { Router } from '@angular/router';
 import { DweetService } from 'src/app/services/dweet.service';
 import Dweet from 'src/models/Dweet';
 
+
 @Component({
   selector: 'app-temperature',
   templateUrl: './temperature.page.html',
   styleUrls: ['./temperature.page.scss'],
 })
 export class TemperaturePage implements OnInit {
-
 
   private dweet: Dweet
   private isLoading: boolean = true;
@@ -19,14 +19,12 @@ export class TemperaturePage implements OnInit {
 
   options: Object;
 
-
-  constructor(public router: Router,private dweetService: DweetService,) { 
+  constructor(public router: Router, private dweetService: DweetService) { 
     this.time = setInterval(() => {this.getLastDweets()}, 3000)
   }
 
   ngOnInit() {
     this.getLastDweets();
-
   }
 
   ngOnDestroy(){
@@ -36,22 +34,22 @@ export class TemperaturePage implements OnInit {
   private getLastDweets(){
     this.dataPlot = []
     this.dweetService.loadLastDweets().subscribe(
-        data => {
-         this.preencherDweet(data)
-        },
-        err => {
-          console.log("Erro: ", err)
-        },
-        () => this.isLoading = false
+      data => {
+        this.preencherDweet(data)
+      }, 
+      err => {
+        console.log("Erro: ", err)
+      },
+      () => this.isLoading = false
     )
   }
 
   private preencherDweet(data: any){
-    this.dweet = this.dweetService.preencherDweet(data);
+    this.dweet = this.dweetService.preencherDweet(data); 
     this.loadDataForPlot(this.dweet)
     this.plotChart();
   }
-   
+
   private loadDataForPlot(dweet: Dweet){
     for(let _with of dweet.with){
       let epoch = new Date(_with.created).getTime()
@@ -73,14 +71,12 @@ export class TemperaturePage implements OnInit {
       },
       title: { text: 'Temperatura '},
         series: [{
-        name: 'temperatura',
+          name: 'temperatura',
           data: this.dataPlot.reverse(),
-        pointInterval: 60 * 60
-      }]
+          pointInterval: 60 * 60
+        }]
     };
-    }
-   
-   
+  }
 
   goBack(){
     this.router.navigate(['home'])

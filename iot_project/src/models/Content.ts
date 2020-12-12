@@ -1,12 +1,29 @@
 export default class Content {
     
     private temperatura: string = "0";
+    private luminosidade: string = "0";
 
 
-	constructor($temperatura: string ) {
-		this.temperatura = $temperatura;
+	constructor($temperatura: string, $luminosidade: string ) {
+        this.temperatura = $temperatura;
+        this.luminosidade = $luminosidade;
 	}
 
+    /**
+     * Getter $luminosidade
+     * @return {string }
+     */
+	public get $luminosidade(): string  {
+		return this.luminosidade;
+	}
+
+    /**
+     * Setter $luminosidade
+     * @param {string } value
+     */
+	public set $luminosidade(value: string ) {
+		this.luminosidade = value;
+	}
 
     /**
      * Getter $temperature
