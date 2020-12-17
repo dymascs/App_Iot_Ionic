@@ -16,8 +16,14 @@
 
   <div *ngIf="!isLoading">
     <ion-card>
-      <ion-card-content style="text-align: center; font-size: 5rem;">
+      <ion-card-content style="text-align: center; font-size: 3.5rem;">
         {{dweet._with[0].content.luminosidade}} Lux
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content style="text-align: center; font-size: 0.6rem;">
+        {{dweet._with[0].content.lumMax}} Max
+        {{dweet._with[0].content.lumMin}} Min
       </ion-card-content>
     </ion-card>
 
